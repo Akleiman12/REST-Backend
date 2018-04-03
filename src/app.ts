@@ -1,13 +1,26 @@
 import * as express from 'express'
+import * as bodyParser from 'body-parser'
 
-class App {
-  public express
+export default class App {
+  public express;
+  public router;
 
   constructor () {
-    this.express = express()
+    //Se declara express, que manejara la comunicación HTTP
+    this.express = express();
+    
+    /*Instanciamos el router de Express para manejar diferentes 
+    acciones a una misma ruta */
+    this.router = this.express.Router();
+
+    // Se utiliza BodyParser() para poder recibir data de los POSTS
+
+      //Para recibir data del tipo application/x-www-form-urlencoded
+      this.express.use(bodyParser.urlencoded({ extended: true }));
+
+      //Para recibir data del tipo application/json
+      this.express.use(bodyParser.json());
   }
 
 
 }
-
-export default new App().express
