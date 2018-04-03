@@ -11,9 +11,6 @@
 //Puerto a usar para servir el backend de forma local
   const port = 3000;
 
-//Conectamos con dicha base de datos, que corre a nivel local
-  db.connect('localhost:27017/library');
-
 //Se declaran las rutas que se van a utilizar en la API
   api.router.get('/', function(req, res) {
     res.json({ message: 'hooray! welcome to our api!' });   

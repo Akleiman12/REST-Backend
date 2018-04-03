@@ -1,2 +1,6 @@
 export * from './book/book.model'
 export * from './book/bookRelated.model'
+export * from './author/author.model'
+export * from './author/authorRelated.model'
+export * from './genre/genre.model'
+export * from './genre/genreRelated.model'
