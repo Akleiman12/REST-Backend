@@ -28,9 +28,9 @@ export class BookRepo {
     }
 
     public async remove(id: string): Promise<Book | null>{
-        let found = await this.db.Books.findOne({'_id': new ObjectId(id)});
-        if (found.id){
-            this.db.Books.deleteOne({'_id': new ObjectId(found.id)});
+        let found: Book = await this.db.Books.findOne({'_id': new ObjectId(id)});
+        if (found._id){
+            this.db.Books.deleteOne({'_id': new ObjectId(found._id)});
             return found;
         }
         else{
@@ -39,7 +39,7 @@ export class BookRepo {
     }
 
     public async update(id: string, data: Book): Promise<Book | null>{
-        let updated = await this.db.Books.updateOne({'_id': new ObjectId(id)}, data);
+        let updated = await this.db.Books.updateOne({'_id': new ObjectId(id)}, { $set: data });
         if(updated.matchedCount === 1){
             return this.db.Books.findOne({'_id': new ObjectId(id)});
         }

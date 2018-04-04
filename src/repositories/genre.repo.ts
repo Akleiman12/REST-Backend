@@ -29,8 +29,8 @@ export class GenreRepo {
 
     public async remove(id: string): Promise<Genre | null>{
         let found = await this.db.Genres.findOne({'_id': new ObjectId(id)});
-        if (found.id){
-            this.db.Genres.deleteOne({'_id': new ObjectId(found.id)});
+        if (found._id){
+            this.db.Genres.deleteOne({'_id': new ObjectId(found._id)});
             return found;
         }
         else{
@@ -39,7 +39,7 @@ export class GenreRepo {
     }
 
     public async update(id: string, data: Genre): Promise<Genre | null>{
-        let updated = await this.db.Genres.updateOne({'_id': new ObjectId(id)}, data);
+        let updated = await this.db.Genres.updateOne({'_id': new ObjectId(id)}, { $set: data });
         if(updated.matchedCount === 1){
             return this.db.Genres.findOne({'_id': new ObjectId(id)});
         }
