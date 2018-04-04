@@ -1,5 +1,5 @@
 export interface BookRelated {
-    authors: string[],
-    genres: string[],
-    year: string[]
+    authors?: string[],
+    genres?: string[],
+    year?: string[]
 }

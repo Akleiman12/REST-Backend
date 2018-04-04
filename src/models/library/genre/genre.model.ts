@@ -1,6 +1,6 @@
 import { GenreRelated } from './genreRelated.model'
 export interface Genre {
-    id: string,
+    id?: string,
     title: string,
-    links: GenreRelated
+    links?: GenreRelated
 }

@@ -8,10 +8,6 @@ export default class App {
   constructor () {
     //Se declara express, que manejara la comunicación HTTP
     this.express = express();
-    
-    /*Instanciamos el router de Express para manejar diferentes 
-    acciones a una misma ruta */
-    this.router = this.express.Router();
 
     // Se utiliza BodyParser() para poder recibir data de los POSTS
 

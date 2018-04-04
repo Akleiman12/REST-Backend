@@ -1,6 +1,6 @@
 import { AuthorRelated } from './authorRelated.model'
 export interface Author {
-    id: string,
+    id?: string,
     given_name: string,
     middle_name: string,
     last_name: string,
@@ -9,5 +9,5 @@ export interface Author {
     death_date: string,
     death_place: string, 
     age: number,
-    links: AuthorRelated
+    links?: AuthorRelated
 }

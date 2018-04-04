@@ -1,8 +1,8 @@
 import { BookRelated } from './bookRelated.model'
 export interface Book {
-    id: string,
+    id?: string,
     title: string,
     edition: string,
     year: string, 
-    links: BookRelated
+    links?: BookRelated
 }
