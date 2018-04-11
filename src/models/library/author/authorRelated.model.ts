@@ -1,4 +1,4 @@
 export interface AuthorRelated {
-    books?: string,
+    books?: string[],
     genres?: string[],
 }
