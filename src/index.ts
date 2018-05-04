@@ -161,21 +161,6 @@ const run = async () =>{
               message: 'Libro actualizado',
               book: result
             });
-<<<<<<< HEAD
-          }
-        else{
-          res.status(422).json({message:'Missing parameters'});
-        } 
-      })
-      .get(async function(req, res){
-        console.log('entre peeeerrroooooooo')
-          let result = await books.getAll();
-          res.status(200).json({
-            message: 'Libros buscados',
-            books: result
-          });
-      });
-=======
           } 
         })
         .get(cache(15), async function(req, res){ //Operador para buscar un libro específico
@@ -242,7 +227,6 @@ const run = async () =>{
                   age: req.body.age
                 };
               }
->>>>>>> 660fd4ccad32a639e827fc1e1b5cea536ef6e29b
 
               //Se crea el autor en la base de datos respectiva
               let result = await authors.create(author);
