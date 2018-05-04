@@ -27,7 +27,9 @@ const run = async () =>{
     const books = new BookRepo(db);
     const genres = new GenreRepo(db);
   //Puerto a usar para servir el backend de forma local
-    const port = 3000;
+    const port = 3001;
+
+    
 
   //Se declaran las rutas que se van a utilizar en la API
     api.express.route('/api/books')
@@ -63,11 +65,12 @@ const run = async () =>{
         } 
       })
       .get(async function(req, res){
-        let result = await books.getAll();
-        res.status(200).json({
-          message: 'Libros buscados',
-          books: result
-        });
+        console.log('entre peeeerrroooooooo')
+          let result = await books.getAll();
+          res.status(200).json({
+            message: 'Libros buscados',
+            books: result
+          });
       });
 
       api.express.route('/api/books/:book_id')

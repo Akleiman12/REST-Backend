@@ -1,5 +1,6 @@
 import * as express from 'express'
 import * as bodyParser from 'body-parser'
+import * as cors from 'cors'
 
 export default class App {
   public express;
@@ -16,6 +17,8 @@ export default class App {
 
       //Para recibir data del tipo application/json
       this.express.use(bodyParser.json());
+
+      this.express.use(cors());
   }
 
 
