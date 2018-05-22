@@ -7,6 +7,7 @@
   import { Db, MongoClient } from 'mongodb';
   import { Author, Book, Genre } from './models/library';
   import * as mcache from 'memory-cache';
+import { DBFiller } from './dbFiller';
 
 //Creamos el objeto api, que representará la API RESTful
   const api = new App();
@@ -15,8 +16,8 @@
 const run = async () =>{
 
   //Creamos la conexión con la BDD correspondiente
-  const mc = await MongoClient.connect('mongodb://localhost:27017/library');
-  const mongo: Db = mc.db('library');
+  const mc = await MongoClient.connect('mongodb://localhost:27017/libraryRST');
+  const mongo: Db = mc.db('libraryRST');
   const db = {
     Authors: mongo.collection<Author>('authors'),
     Books: mongo.collection<Book>('books'),
@@ -430,6 +431,9 @@ const run = async () =>{
           });
         });
 
+        //DATABASE FILLER: Descomentar para llenar la Base de Datos con data de prueba
+/*       let dbfiller = new DBFiller();
+      dbfiller.fill(db); */
 
   //Se inicia la aplicación, para que corra en el puerto provisto
     api.express.listen(port, (err) => {
